@@ -4,15 +4,19 @@ public class Course {
     private int course_id;
     private String name;
     private Double attendance;
+    private long startDate;
+    private long endDate;
 
     public Course(){
 
     }
 
-    public Course(int course_id,String name,Double attendance){
+    public Course(int course_id,String name,Double attendance,long startDate,long endDate){
         setCourse_id(course_id);
         setName(name);
         setAttendance(attendance);
+        setStartDate(startDate);
+        setEndDate(endDate);
     }
 
     public int getCourse_id() {
@@ -37,5 +41,21 @@ public class Course {
 
     public void setAttendance(Double attendance) {
         this.attendance = attendance;
+    }
+
+    public long getStartDate() {
+        return startDate;
+    }
+
+    public void setStartDate(long startDate) {
+        this.startDate = startDate;
+    }
+
+    public long getEndDate() {
+        return endDate;
+    }
+
+    public void setEndDate(long endDate) {
+        this.endDate = endDate;
     }
 }
