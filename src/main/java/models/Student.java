@@ -1,6 +1,6 @@
 package models;
 
-public class Student {
+public class Student extends Person{
     private String user_id;
     private int barcode;
 
