@@ -7,11 +7,11 @@ public class Course {
     private long startDate;
     private long endDate;
 
-    public Course(){
+    public Course() {
 
     }
 
-    public Course(int course_id,String name,Double attendance,long startDate,long endDate){
+    public Course(int course_id,String name,Double attendance,long startDate,long endDate) {
         setCourse_id(course_id);
         setName(name);
         setAttendance(attendance);
