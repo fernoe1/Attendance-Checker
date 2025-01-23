@@ -1,24 +1,24 @@
 package models;
 
 public class Student extends Person{
-    private String user_id;
+    private int user_id;
     private int barcode;
 
     public Student(){
 
     }
 
-    public Student(String name,String surname,String user_id,int barcode){
+    public Student(String name, String surname, int user_id, int barcode){
         super(name,surname);
         setUser_id(user_id);
         setBarcode(barcode);
     }
 
-    public String getUser_id(){
+    public int getUser_id(){
         return user_id;
     }
 
-    public void setUser_id(String user_id) {
+    public void setUser_id(int user_id) {
         this.user_id = user_id;
     }
 

@@ -3,18 +3,18 @@ package models;
 public class Course {
     private int course_id;
     private String name;
-    private Double attendance;
-    private long endDate;
+    private double attendance;
+    private boolean status;
 
     public Course() {
 
     }
 
-    public Course(int course_id,String name,Double attendance,long startDate,long endDate) {
+    public Course(int course_id, String name, double attendance, boolean status) {
         setCourse_id(course_id);
         setName(name);
         setAttendance(attendance);
-        setEndDate(endDate);
+        setStatus(status);
     }
 
     public int getCourse_id() {
@@ -37,15 +37,15 @@ public class Course {
         return attendance;
     }
 
-    public void setAttendance(Double attendance) {
+    public void setAttendance(double attendance) {
         this.attendance = attendance;
     }
 
-    public long getEndDate() {
-        return endDate;
+    public boolean getStatus() {
+        return status;
     }
 
-    public void setEndDate(long endDate) {
-        this.endDate = endDate;
+    public void setStatus(boolean status) {
+        this.status = status;
     }
 }
