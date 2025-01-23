@@ -8,7 +8,8 @@ public class Student extends Person{
 
     }
 
-    public Student(String user_id,int barcode){
+    public Student(String name,String surname,String user_id,int barcode){
+        super(name,surname);
         setUser_id(user_id);
         setBarcode(barcode);
     }
