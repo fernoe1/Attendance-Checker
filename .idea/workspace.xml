@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6f2cad37-5940-45cf-a3de-4aad368e6267" name="Changes" comment="created getters and setters,change constructor" />
+    <list default="true" id="6f2cad37-5940-45cf-a3de-4aad368e6267" name="Changes" comment="created 1 parametrized and one non-parametrized,getters and setters" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -50,7 +50,7 @@
   "keyToString": {
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.git.unshallow": "true",
-    "git-widget-placeholder": "create-gettersetters-for-course-class",
+    "git-widget-placeholder": "create-getter-setters-and-constructors-for-student-class",
     "ignore.virus.scanning.warn.message": "true",
     "kotlin-language-version-configured": "true",
     "node.js.detected.package.eslint": "true",
@@ -128,7 +128,15 @@
       <option name="project" value="LOCAL" />
       <updated>1737477872043</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="created 1 parametrized and one non-parametrized,getters and setters">
+      <option name="closed" value="true" />
+      <created>1737653407057</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1737653407057</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -138,6 +146,7 @@
     <MESSAGE value="sa" />
     <MESSAGE value="created constructor" />
     <MESSAGE value="created getters and setters,change constructor" />
-    <option name="LAST_COMMIT_MESSAGE" value="created getters and setters,change constructor" />
+    <MESSAGE value="created 1 parametrized and one non-parametrized,getters and setters" />
+    <option name="LAST_COMMIT_MESSAGE" value="created 1 parametrized and one non-parametrized,getters and setters" />
   </component>
 </project>
