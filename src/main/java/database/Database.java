@@ -11,21 +11,19 @@ public class Database implements IDatabase {
     private static final String user = "postgres";
     private static final String password = "130924";
     private static final String dbName = "moodle";
-    private static final String port = "5432"; // Default PostgreSQL port
+    private static final String port = "5432";
     private static Connection connection;
 
     @Override
     public Connection getConnection() {
-        String connectionUrl = "jdbc:postgresql://" + host + ":" + port + "/" + dbName; // Corrected JDBC URL
+        String connectionUrl = "jdbc:postgresql://" + host + ":" + port + "/" + dbName;
         try {
             if (connection != null && !connection.isClosed()) {
                 return connection;
             }
 
-            // Load PostgreSQL JDBC Driver
             Class.forName("org.postgresql.Driver");
 
-            // Establish connection
             connection = DriverManager.getConnection(connectionUrl, user, password);
 
             System.out.println("Connected to PostgreSQL successfully.");
