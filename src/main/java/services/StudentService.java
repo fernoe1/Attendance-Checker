@@ -1,6 +1,5 @@
 package services;
 
-import models.Course;
 import models.Schedule;
 import models.Student;
 import repositories.DatabaseRepository;
@@ -32,34 +31,8 @@ public class StudentService implements IStudentService {
     }
 
     @Override
-    public void saveCourses() {
-        databaseRepository.saveCourses(moodleRepository.getAllCourses());
-    }
-
-    @Override
-    public void updateCourses() {
-        databaseRepository.updateCourses(moodleRepository.getAllCourses());
-    }
-
-
-    @Override
-    public void saveSchedules(ArrayList<Schedule> schedules) {
-        databaseRepository.saveSchedules(schedules);
-    }
-
-    @Override
-    public ArrayList<Course> getCourses() {
-        return moodleRepository.getAllCourses();
-    }
-
-    @Override
     public int getUserId() {
         return moodleRepository.getUserId();
-    }
-
-    @Override
-    public ArrayList<Schedule> getSchedules() {
-        return databaseRepository.getSchedules();
     }
 
     @Override
