@@ -11,6 +11,4 @@ public interface IStudentService {
     void saveStudent();
 
     int getUserId();
-
-    double calculateTrueAttendance(int course_id);
 }

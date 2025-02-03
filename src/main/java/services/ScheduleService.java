@@ -6,7 +6,7 @@ import services.interfaces.IScheduleService;
 
 import java.util.ArrayList;
 
-public class ScheduleService {
+public class ScheduleService implements IScheduleService{
     private DatabaseRepository databaseRepository;
 
     public ScheduleService(DatabaseRepository databaseRepository) {

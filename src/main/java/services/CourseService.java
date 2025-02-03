@@ -3,10 +3,11 @@ package services;
 import models.Course;
 import repositories.DatabaseRepository;
 import clients.MoodleClient;
+import services.interfaces.ICourseService;
 
 import java.util.ArrayList;
 
-public class CourseService {
+public class CourseService implements ICourseService {
     private MoodleClient moodleClient;
     private DatabaseRepository databaseRepository;
 
