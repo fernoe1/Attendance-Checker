@@ -2,32 +2,31 @@ package services;
 
 import models.Course;
 import repositories.DatabaseRepository;
-import repositories.MoodleRepository;
-import services.interfaces.ICourseService;
+import clients.MoodleClient;
 
 import java.util.ArrayList;
 
 public class CourseService {
-    private MoodleRepository moodleRepository;
+    private MoodleClient moodleClient;
     private DatabaseRepository databaseRepository;
 
-    public CourseService(MoodleRepository MoodleRepository, DatabaseRepository databaseRepository) {
-        this.moodleRepository = moodleRepository;
+    public CourseService(MoodleClient MoodleClient, DatabaseRepository databaseRepository) {
+        this.moodleClient = moodleClient;
         this.databaseRepository = databaseRepository;
     }
 
     @Override
     public void saveCourses() {
-        databaseRepository.saveCourses(moodleRepository.getAllCourses());
+        databaseRepository.saveCourses(moodleClient.getAllCourses());
     }
 
     @Override
     public void updateCourses() {
-        databaseRepository.updateCourses(moodleRepository.getAllCourses());
+        databaseRepository.updateCourses(moodleClient.getAllCourses());
     }
 
     @Override
     public ArrayList<Course> getCourses() {
-        return moodleRepository.getAllCourses();
+        return moodleClient.getAllCourses();
     }
 }

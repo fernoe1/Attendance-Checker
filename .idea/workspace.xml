@@ -4,14 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6f2cad37-5940-45cf-a3de-4aad368e6267" name="Changes" comment="updated database">
+    <list default="true" id="6f2cad37-5940-45cf-a3de-4aad368e6267" name="Changes" comment="created getters and setters,change constructor">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/repositories/MoodleRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/clients/MoodleClient.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/repositories/interfaces/IMoodleRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/clients/interfaces/IMoodleClient.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/services/CourseService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/services/CourseService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/services/ScheduleService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/services/ScheduleService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/services/StudentService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/services/StudentService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/services/interfaces/ICourseService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/services/interfaces/ICourseService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/services/interfaces/IScheduleService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/services/interfaces/IScheduleService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/services/interfaces/IStudentService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/services/interfaces/IStudentService.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -21,15 +20,15 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Interface" />
         <option value="Class" />
+        <option value="Interface" />
       </list>
     </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="create-new-interfaces-and-classes-for-services-package" />
+        <entry key="$PROJECT_DIR$" value="main" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -42,13 +41,10 @@
 }</component>
   <component name="GithubPullRequestsUISettings">{
   &quot;selectedUrlAndAccountId&quot;: {
-    &quot;url&quot;: &quot;https://github.com/fernoe1/Attendance-Checker.git&quot;,
-    &quot;accountId&quot;: &quot;19c38f08-e6c2-49a6-a64d-e64411058438&quot;
+    &quot;url&quot;: &quot;https://github.com/fernoe1/Attendance-Checker&quot;,
+    &quot;accountId&quot;: &quot;5a30f435-6bcc-4064-a253-dde445fe9971&quot;
   }
 }</component>
-  <component name="ProblemsViewState">
-    <option name="selectedTabId" value="CurrentFile" />
-  </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 5
 }</component>
@@ -60,10 +56,9 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
-    "Application.Main.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.git.unshallow": "true",
-    "git-widget-placeholder": "split-studentservice-into-studentservice-courseservice-scheduleservice-to…dards",
+    "git-widget-placeholder": "create-package-clients",
     "ignore.virus.scanning.warn.message": "true",
     "kotlin-language-version-configured": "true",
     "node.js.detected.package.eslint": "true",
@@ -71,10 +66,20 @@
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "inlay.hints",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
+  <component name="RunManager">
+    <configuration default="true" type="JetRunConfigurationType">
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType">
+      <option name="filePath" />
+      <method v="2" />
+    </configuration>
+  </component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
@@ -98,7 +103,6 @@
       <workItem from="1737473282168" duration="66000" />
       <workItem from="1737473356774" duration="219000" />
       <workItem from="1737477710221" duration="567000" />
-      <workItem from="1738491597343" duration="2110000" />
     </task>
     <task id="LOCAL-00001" summary="sa">
       <option name="closed" value="true" />
@@ -132,23 +136,7 @@
       <option name="project" value="LOCAL" />
       <updated>1737477872043</updated>
     </task>
-    <task id="LOCAL-00005" summary="did sum">
-      <option name="closed" value="true" />
-      <created>1737655071985</created>
-      <option name="number" value="00005" />
-      <option name="presentableId" value="LOCAL-00005" />
-      <option name="project" value="LOCAL" />
-      <updated>1737655071985</updated>
-    </task>
-    <task id="LOCAL-00006" summary="updated database">
-      <option name="closed" value="true" />
-      <created>1738491669745</created>
-      <option name="number" value="00006" />
-      <option name="presentableId" value="LOCAL-00006" />
-      <option name="project" value="LOCAL" />
-      <updated>1738491669745</updated>
-    </task>
-    <option name="localTasksCounter" value="7" />
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -158,8 +146,6 @@
     <MESSAGE value="sa" />
     <MESSAGE value="created constructor" />
     <MESSAGE value="created getters and setters,change constructor" />
-    <MESSAGE value="did sum" />
-    <MESSAGE value="updated database" />
-    <option name="LAST_COMMIT_MESSAGE" value="updated database" />
+    <option name="LAST_COMMIT_MESSAGE" value="created getters and setters,change constructor" />
   </component>
 </project>
