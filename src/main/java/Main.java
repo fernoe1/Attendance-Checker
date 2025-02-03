@@ -2,7 +2,7 @@ import database.Database;
 import models.Course;
 import models.Schedule;
 import repositories.DatabaseRepository;
-import repositories.MoodleRepository;
+import clients.MoodleClient;
 import services.StudentService;
 
 import java.time.Instant;
@@ -17,9 +17,9 @@ public class Main {
         String token = sc.next();
         System.out.println("Which week is it?");
         int week = sc.nextInt();
-        MoodleRepository moodleRepository = new MoodleRepository(token);
+        MoodleClient moodleClient = new MoodleClient(token);
         DatabaseRepository databaseRepository = new DatabaseRepository(new Database());
-        StudentService studentService = new StudentService(moodleRepository, databaseRepository, week);
+        StudentService studentService = new StudentService(moodleClient, databaseRepository, week);
         Menu menu = new Menu(studentService);
 
         if (studentService.doesUserExist()) {
@@ -33,7 +33,7 @@ public class Main {
             studentService.saveCourses();
 
             ArrayList<Course> ongoingCourses = new ArrayList<>();
-            for (Course course : moodleRepository.getAllCourses()) {
+            for (Course course : moodleClient.getAllCourses()) {
                 if (course.getStatus()) {
                     ongoingCourses.add(course);
                 }
@@ -73,7 +73,7 @@ public class Main {
                         continue;
                     }
 
-                    schedules.add(new Schedule(course.getCourse_id(), moodleRepository.getUserId(), day, timeSlot));
+                    schedules.add(new Schedule(course.getCourse_id(), moodleClient.getUserId(), day, timeSlot));
                     allocatedHours += enteredHours;
 
                     if (allocatedHours < totalHours) {

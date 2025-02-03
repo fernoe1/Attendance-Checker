@@ -1,11 +1,11 @@
-package repositories.interfaces;
+package clients.interfaces;
 
 import models.Course;
 import models.Student;
 
 import java.util.ArrayList;
 
-public interface IMoodleRepository {
+public interface IMoodleClient {
 
     Student getUserInfo();
 
