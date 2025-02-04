@@ -4,23 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6f2cad37-5940-45cf-a3de-4aad368e6267" name="Changes" comment="did sum">
-      <change afterPath="$PROJECT_DIR$/src/main/java/Menu.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/database/Database.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/database/interfaces/IDatabase.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/models/Schedule.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/repositories/DatabaseRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/repositories/interfaces/IDatabaseRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/services/StudentService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/services/interfaces/IStudentService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+    <list default="true" id="6f2cad37-5940-45cf-a3de-4aad368e6267" name="Changes" comment="updated database">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/models/Course.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/models/Course.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/models/Student.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/models/Student.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/repositories/MoodleRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/repositories/MoodleRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/repositories/interfaces/IMoodleRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/repositories/interfaces/IMoodleRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/services/CourseService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/services/CourseService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/services/ScheduleService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/services/ScheduleService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/services/StudentService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/services/StudentService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/services/interfaces/ICourseService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/services/interfaces/ICourseService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/services/interfaces/IScheduleService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/services/interfaces/IScheduleService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/services/interfaces/IStudentService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/services/interfaces/IStudentService.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -38,7 +29,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="gettersetters-for-course-class" />
+        <entry key="$PROJECT_DIR$" value="create-new-interfaces-and-classes-for-services-package" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -51,8 +42,8 @@
 }</component>
   <component name="GithubPullRequestsUISettings">{
   &quot;selectedUrlAndAccountId&quot;: {
-    &quot;url&quot;: &quot;https://github.com/fernoe1/Attendance-Checker&quot;,
-    &quot;accountId&quot;: &quot;5a30f435-6bcc-4064-a253-dde445fe9971&quot;
+    &quot;url&quot;: &quot;https://github.com/fernoe1/Attendance-Checker.git&quot;,
+    &quot;accountId&quot;: &quot;19c38f08-e6c2-49a6-a64d-e64411058438&quot;
   }
 }</component>
   <component name="ProblemsViewState">
@@ -67,23 +58,23 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Application.Main.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;inlay.hints&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Application.Main.executor": "Run",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "git-widget-placeholder": "split-studentservice-into-studentservice-courseservice-scheduleservice-to…dards",
+    "ignore.virus.scanning.warn.message": "true",
+    "kotlin-language-version-configured": "true",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "inlay.hints",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
@@ -107,6 +98,7 @@
       <workItem from="1737473282168" duration="66000" />
       <workItem from="1737473356774" duration="219000" />
       <workItem from="1737477710221" duration="567000" />
+      <workItem from="1738491597343" duration="2110000" />
     </task>
     <task id="LOCAL-00001" summary="sa">
       <option name="closed" value="true" />
@@ -148,7 +140,15 @@
       <option name="project" value="LOCAL" />
       <updated>1737655071985</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="updated database">
+      <option name="closed" value="true" />
+      <created>1738491669745</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1738491669745</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -159,6 +159,7 @@
     <MESSAGE value="created constructor" />
     <MESSAGE value="created getters and setters,change constructor" />
     <MESSAGE value="did sum" />
-    <option name="LAST_COMMIT_MESSAGE" value="did sum" />
+    <MESSAGE value="updated database" />
+    <option name="LAST_COMMIT_MESSAGE" value="updated database" />
   </component>
 </project>
