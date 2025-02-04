@@ -13,6 +13,19 @@ public class Database implements IDatabase {
     private static final String dbName = "moodle";
     private static final String port = "5432";
     private static Connection connection;
+    private static Database instance;
+
+    public static Database getInstance() {
+        if (instance == null) {
+            synchronized(Database.class) {
+                if (instance == null) {
+                    instance = new Database();
+                }
+            }
+        }
+
+        return instance;
+    }
 
     @Override
     public Connection getConnection() {

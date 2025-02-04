@@ -1,4 +1,4 @@
-package repositories;
+package clients;
 
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -6,25 +6,24 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import models.Course;
 import models.Student;
 
-import repositories.interfaces.IMoodleRepository;
+import clients.interfaces.IMoodleClient;
 
 import java.net.URI;
 import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
-
 import java.net.http.HttpResponse;
 
 import java.time.Instant;
 
 import java.util.ArrayList;
 
-public class MoodleRepository implements IMoodleRepository {
+public class MoodleClient implements IMoodleClient {
     private final HttpClient client = HttpClient.newHttpClient();
     private final ObjectMapper mapper = new ObjectMapper();
     private final String token;
     private final int user_id;
 
-    public MoodleRepository(String token) {
+    public MoodleClient(String token) {
         this.token = token;
         this.user_id = getUserId();
     }
