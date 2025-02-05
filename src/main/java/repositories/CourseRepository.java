@@ -6,13 +6,28 @@ import repositories.interfaces.ICourseRepository;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
 
 public class CourseRepository implements ICourseRepository {
     private Database database;
+    private static CourseRepository instance;
 
-    public CourseRepository(Database database) {
-        this.database = database;
+    public CourseRepository() {
+        database = Database.getInstance();
+    }
+
+    public static CourseRepository getInstance() {
+        if (instance == null) {
+            synchronized (Database.class) {
+                if (instance == null) {
+                    instance = new CourseRepository();
+                }
+            }
+        }
+
+        return instance;
     }
 
     @Override
@@ -33,8 +48,8 @@ public class CourseRepository implements ICourseRepository {
             }
 
             st.executeBatch();
-        } catch (Exception e) {
-            System.out.println("Error occurred while saving courses: " + e.getMessage());
+        } catch (SQLException e) {
+            System.out.println("SQL Error occurred while saving courses: " + e.getMessage());
         }
     }
 
@@ -53,9 +68,29 @@ public class CourseRepository implements ICourseRepository {
             }
 
             st.executeBatch();
-        } catch (Exception e) {
-            e.printStackTrace();
-            System.out.println("Error occurred while updating courses: " + e.getMessage());
+        } catch (SQLException e) {
+            System.out.println("SQL Error occurred while updating courses: " + e.getMessage());
+        }
+    }
+
+    @Override
+    public Course getCourseById(int course_id) {
+        String sql = "SELECT 1 FROM courses WHERE course_id = ?";
+        try {
+            Connection con = database.getConnection();
+            PreparedStatement st = con.prepareStatement(sql);
+            st.setInt(1, course_id);
+            ResultSet rs = st.executeQuery();
+
+            String name = rs.getString("name");
+            double attendance = rs.getDouble("attendance");
+            boolean status = rs.getBoolean("status");
+
+            return new Course(course_id, name, attendance, status);
+        } catch (SQLException e) {
+            System.out.println("SQL Error occurred while getting course by ID: " + e.getMessage());
+
+            return null;
         }
     }
 }

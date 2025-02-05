@@ -8,4 +8,6 @@ public interface ICourseRepository {
     void saveCourses(ArrayList<Course> courses);
 
     void updateCourses(ArrayList<Course> courses);
+
+    Course getCourseById(int course_id);
 }

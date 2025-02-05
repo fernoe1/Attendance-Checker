@@ -11,9 +11,22 @@ import java.sql.SQLException;
 
 public class StudentRepository implements IStudentRepository {
     private Database database;
+    private static StudentRepository instance;
 
-    public StudentRepository(Database database) {
-        this.database = database;
+    public StudentRepository() {
+        this.database = Database.getInstance();
+    }
+
+    public static StudentRepository getInstance() {
+        if (instance == null) {
+            synchronized(Database.class) {
+                if (instance == null) {
+                    instance = new StudentRepository();
+                }
+            }
+        }
+
+        return instance;
     }
 
     @Override

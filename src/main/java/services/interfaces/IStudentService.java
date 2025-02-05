@@ -11,4 +11,6 @@ public interface IStudentService {
     void saveStudent();
 
     int getUserId();
+
+    Student getStudent();
 }

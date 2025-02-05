@@ -11,4 +11,8 @@ public interface ICourseService {
     void updateCourses();
 
     ArrayList<Course> getCourses();
+
+    ArrayList<Course> getFormattedOngoingCourses();
+
+    Course getCourseById(int course_id);
 }

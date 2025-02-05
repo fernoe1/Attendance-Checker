@@ -1,7 +1,7 @@
 package services;
 
 import models.Course;
-import repositories.DatabaseRepository;
+import repositories.CourseRepository;
 import clients.MoodleClient;
 import services.interfaces.ICourseService;
 
@@ -9,25 +9,40 @@ import java.util.ArrayList;
 
 public class CourseService implements ICourseService {
     private MoodleClient moodleClient;
-    private DatabaseRepository databaseRepository;
+    private CourseRepository courseRepository;
 
-    public CourseService(MoodleClient MoodleClient, DatabaseRepository databaseRepository) {
+    public CourseService(MoodleClient moodleClient, CourseRepository courseRepository) {
         this.moodleClient = moodleClient;
-        this.databaseRepository = databaseRepository;
+        this.courseRepository = courseRepository;
     }
 
     @Override
     public void saveCourses() {
-        databaseRepository.saveCourses(moodleClient.getAllCourses());
+        System.out.println("Saving courses..");
+        courseRepository.saveCourses(moodleClient.getAllCourses());
     }
 
     @Override
     public void updateCourses() {
-        databaseRepository.updateCourses(moodleClient.getAllCourses());
+        System.out.println("Updating courses..");
+        courseRepository.updateCourses(moodleClient.getAllCourses());
     }
 
     @Override
     public ArrayList<Course> getCourses() {
+        System.out.println("Fetching courses..");
         return moodleClient.getAllCourses();
+    }
+
+    @Override
+    public ArrayList<Course> getFormattedOngoingCourses() {
+        System.out.println("Fetching formatted ongoing courses..");
+        return moodleClient.getAllFormattedOngoingCourses();
+    }
+
+    @Override
+    public Course getCourseById(int course_id) {
+        System.out.println("Fetching course by ID..");
+        return courseRepository.getCourseById(course_id);
     }
 }

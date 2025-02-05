@@ -12,9 +12,22 @@ import java.util.ArrayList;
 
 public class ScheduleRepository implements IScheduleRepository {
     private Database database;
+    private static ScheduleRepository instance;
 
-    public ScheduleRepository(Database database) {
-        this.database = database;
+    public ScheduleRepository() {
+        this.database = Database.getInstance();
+    }
+
+    public static ScheduleRepository getInstance() {
+        if (instance == null) {
+            synchronized(Database.class) {
+                if (instance == null) {
+                    instance = new ScheduleRepository();
+                }
+            }
+        }
+
+        return instance;
     }
 
     @Override

@@ -135,6 +135,52 @@ public class MoodleClient implements IMoodleClient {
         } catch (Exception e) {
             e.printStackTrace();
         }
+
+        return null;
+    }
+
+    @Override
+    public ArrayList<Course> getAllFormattedOngoingCourses() {
+        ArrayList<Course> courses = new ArrayList<>();
+        String url = "https://moodle.astanait.edu.kz//webservice/rest/server.php?" +
+                "wstoken=" + token +
+                "&moodlewsrestformat=" + "json" +
+                "&wsfunction=" + "core_enrol_get_users_courses" +
+                "&userid=" + user_id;
+
+        try {
+            HttpRequest request = HttpRequest.newBuilder()
+                    .uri(new URI(url))
+                    .GET()
+                    .build();
+
+            HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());
+
+            String jsonResponse = response.body();
+
+            JsonNode jsonNode = mapper.readTree(jsonResponse);
+            if (jsonNode != null && jsonNode.isArray()) {
+                for (JsonNode jsonPart : jsonNode) {
+                    int course_id = jsonPart.get("id").asInt();
+                    String fullname = jsonPart.get("fullname").asText();
+                    String[] parts = fullname.split("\\|");
+                    String name = parts[0].trim();
+                    double attendance = getAttendance(course_id);
+
+                    long currentDate = Instant.now().getEpochSecond();
+                    long endDate = jsonPart.get("enddate").asLong();
+                    if (currentDate < endDate) {
+                        Course course = new Course(course_id, name, attendance, true);
+                        courses.add(course);
+                    }
+                }
+            }
+
+            return courses;
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
         return null;
     }
 
