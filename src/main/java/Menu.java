@@ -13,8 +13,11 @@ import services.AttendanceService;
 import services.CourseService;
 import services.ScheduleService;
 import services.StudentService;
+import utilities.WeekUtils;
 
+import java.time.Instant;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.Scanner;
 
 public class Menu {
@@ -59,6 +62,11 @@ public class Menu {
             System.out.println("Welcome back, " + studentService.getStudent().getName() + " " + studentService.getStudent().getSurname() + "!");
         }
 
+        Date date = Date.from(Instant.now());
+        System.out.println("Current date: " + date);
+        System.out.println("Current trimester: " + WeekUtils.getCurrentTrimester());
+        System.out.println("Current week: " + WeekUtils.getCurrentWeek());
+
         int option;
         do {
             System.out.println("-----------------------------------------");
@@ -71,7 +79,7 @@ public class Menu {
 
             switch (option) {
                 case 1:
-                    schedules.forEach(schedule -> System.out.println("Course: " + courseService.getCourseById(schedule.getCourse_id()) + "\n"
+                    schedules.forEach(schedule -> System.out.println("Course: " + courseService.getCourseById(schedule.getCourse_id()).getName() + "\n"
                     + "Day: " + schedule.getDay() + " " + "Time: " + schedule.getTime_slot() + "\n"));
                     break;
                 case 2:

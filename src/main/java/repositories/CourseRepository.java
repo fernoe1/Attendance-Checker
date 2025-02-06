@@ -75,18 +75,24 @@ public class CourseRepository implements ICourseRepository {
 
     @Override
     public Course getCourseById(int course_id) {
-        String sql = "SELECT 1 FROM courses WHERE course_id = ?";
+        String sql = "SELECT name, attendance, status FROM courses WHERE course_id = ?";
         try {
             Connection con = database.getConnection();
             PreparedStatement st = con.prepareStatement(sql);
             st.setInt(1, course_id);
             ResultSet rs = st.executeQuery();
 
-            String name = rs.getString("name");
-            double attendance = rs.getDouble("attendance");
-            boolean status = rs.getBoolean("status");
+            if (rs.next()) {
+                String name = rs.getString("name");
+                double attendance = rs.getDouble("attendance");
+                boolean status = rs.getBoolean("status");
 
-            return new Course(course_id, name, attendance, status);
+
+                return new Course(course_id, name, attendance, status);
+            } else {
+                System.out.println("No course found with the ID " + course_id);
+                return null;
+            }
         } catch (SQLException e) {
             System.out.println("SQL Error occurred while getting course by ID: " + e.getMessage());
 
