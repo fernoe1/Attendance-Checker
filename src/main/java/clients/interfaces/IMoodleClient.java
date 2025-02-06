@@ -13,6 +13,8 @@ public interface IMoodleClient {
 
     ArrayList<Course> getAllFormattedOngoingCourses();
 
+    ArrayList<Course> getOngoingCourses();
+
     double getAttendance(int course_id);
 
     int getUserId();

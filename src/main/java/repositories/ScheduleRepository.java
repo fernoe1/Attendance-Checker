@@ -101,4 +101,28 @@ public class ScheduleRepository implements IScheduleRepository {
 
         return 0;
     }
+
+    @Override
+    public ArrayList<String> getWeeklyClassDaysForCourse(int userId, int courseId) {
+        String sql = "SELECT DISTINCT day FROM schedules WHERE user_id = ? AND course_id = ?;";
+        ArrayList<String> classDays = new ArrayList<>();
+
+        try (Connection con = database.getConnection();
+             PreparedStatement ps = con.prepareStatement(sql)) {
+
+            ps.setInt(1, userId);
+            ps.setInt(2, courseId);
+            ResultSet rs = ps.executeQuery();
+
+            while (rs.next()) {
+                classDays.add(rs.getString("day"));
+            }
+
+            return classDays;
+        } catch (SQLException e) {
+            System.out.println("Error occurred while getting weekly class days: " + e.getMessage());
+        }
+
+        return null;
+    }
 }

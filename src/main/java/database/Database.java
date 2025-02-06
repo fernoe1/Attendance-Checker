@@ -7,11 +7,11 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 
 public class Database implements IDatabase {
-    private static final String host = "34.116.231.197";
+    private static final String host = "localhost";
     private static final String user = "postgres";
     private static final String password = "130924";
     private static final String dbName = "moodle";
-    private static final String port = "5432";
+    private static final String port = "1987";
     private static Connection connection;
     private static Database instance;
 
@@ -39,7 +39,6 @@ public class Database implements IDatabase {
 
             connection = DriverManager.getConnection(connectionUrl, user, password);
 
-            System.out.println("Connected to PostgreSQL successfully.");
             return connection;
         } catch (ClassNotFoundException e) {
             System.out.println("PostgreSQL JDBC Driver not found. Include it in your library path.");

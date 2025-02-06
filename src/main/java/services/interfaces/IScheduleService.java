@@ -12,4 +12,6 @@ public interface IScheduleService {
     ArrayList<Schedule> getSchedules(int group_id, ArrayList<Course> courses);
 
     int getWeeklyClassCount(int course_id);
+
+    ArrayList<String> getWeeklyClassDays(int course_id);
 }

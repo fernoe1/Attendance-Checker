@@ -45,4 +45,10 @@ public class CourseService implements ICourseService {
         System.out.println("Fetching course by ID..");
         return courseRepository.getCourseById(course_id);
     }
+
+    @Override
+    public ArrayList<Course> getOngoingCourses() {
+        System.out.println("Fetching ongoing courses..");
+        return moodleClient.getOngoingCourses();
+    }
 }

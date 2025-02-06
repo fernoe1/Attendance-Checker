@@ -40,4 +40,9 @@ public class ScheduleService implements IScheduleService{
         System.out.println("Fetching weekly class count..");
         return scheduleRepository.getWeeklyClassCountForCourse(moodleClient.getUserId(), course_id);
     }
+
+    @Override
+    public ArrayList<String> getWeeklyClassDays(int course_id) {
+        return scheduleRepository.getWeeklyClassDaysForCourse(moodleClient.getUserId(), course_id);
+    }
 }

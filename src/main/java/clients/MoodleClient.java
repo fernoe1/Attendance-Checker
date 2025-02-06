@@ -16,6 +16,7 @@ import java.net.http.HttpResponse;
 import java.time.Instant;
 
 import java.util.ArrayList;
+import java.util.Objects;
 
 public class MoodleClient implements IMoodleClient {
     private final HttpClient client = HttpClient.newHttpClient();
@@ -47,10 +48,8 @@ public class MoodleClient implements IMoodleClient {
             String jsonResponse = response.body();
             JsonNode jsonNode = mapper.readTree(jsonResponse);
 
-            int user_id = jsonNode.get("userid").asInt();
-
-            return user_id;
-        } catch(Exception e) {
+            return jsonNode.get("userid").asInt();
+        } catch (Exception e) {
             e.printStackTrace();
         }
 
@@ -78,13 +77,11 @@ public class MoodleClient implements IMoodleClient {
             String name = jsonNode.get("firstname").asText();
             String surname = jsonNode.get("lastname").asText();
             int user_id = jsonNode.get("userid").asInt();
-            String digits = jsonNode.get("username").asText().substring(0,6);
+            String digits = jsonNode.get("username").asText().substring(0, 6);
             int barcode = Integer.parseInt(digits);
 
-            Student student = new Student(name, surname, user_id, barcode);
-
-            return student;
-        } catch(Exception e) {
+            return new Student(name, surname, user_id, barcode);
+        } catch (Exception e) {
             e.printStackTrace();
         }
 
@@ -114,17 +111,14 @@ public class MoodleClient implements IMoodleClient {
             if (jsonNode != null && jsonNode.isArray()) {
                 for (JsonNode jsonPart : jsonNode) {
                     int course_id = jsonPart.get("id").asInt();
-                    String name = jsonPart.get("fullname").asText();
+                    String name = jsonPart.get("shortname").asText();
+
                     double attendance = getAttendance(course_id);
 
                     long currentDate = Instant.now().getEpochSecond();
                     long endDate = jsonPart.get("enddate").asLong();
                     boolean status;
-                    if (currentDate < endDate) {
-                        status = true;
-                    } else {
-                        status = false;
-                    }
+                    status = currentDate < endDate;
 
                     Course course = new Course(course_id, name, attendance, status);
                     courses.add(course);
@@ -162,16 +156,65 @@ public class MoodleClient implements IMoodleClient {
             if (jsonNode != null && jsonNode.isArray()) {
                 for (JsonNode jsonPart : jsonNode) {
                     int course_id = jsonPart.get("id").asInt();
-                    String fullname = jsonPart.get("fullname").asText();
-                    String[] parts = fullname.split("\\|");
-                    String name = parts[0].trim();
-                    double attendance = getAttendance(course_id);
+                    String fullName = jsonPart.get("shortname").asText();
+                    String[] part = fullName.split(" ");
+                    if (!Objects.equals(part[0], "Foreign") && !Objects.equals(part[0], "Physical")) {
+                        String[] parts = fullName.split("\\|");
+                        String name = parts[0].trim();
+                        double attendance = getAttendance(course_id);
 
-                    long currentDate = Instant.now().getEpochSecond();
-                    long endDate = jsonPart.get("enddate").asLong();
-                    if (currentDate < endDate) {
-                        Course course = new Course(course_id, name, attendance, true);
-                        courses.add(course);
+                        long currentDate = Instant.now().getEpochSecond();
+                        long endDate = jsonPart.get("enddate").asLong();
+                        if (currentDate < endDate) {
+                            Course course = new Course(course_id, name, attendance, true);
+                            courses.add(course);
+                        }
+                    }
+                }
+            }
+
+            return courses;
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return null;
+    }
+
+    @Override
+    public ArrayList<Course> getOngoingCourses() {
+        ArrayList<Course> courses = new ArrayList<>();
+        String url = "https://moodle.astanait.edu.kz//webservice/rest/server.php?" +
+                "wstoken=" + token +
+                "&moodlewsrestformat=" + "json" +
+                "&wsfunction=" + "core_enrol_get_users_courses" +
+                "&userid=" + user_id;
+
+        try {
+            HttpRequest request = HttpRequest.newBuilder()
+                    .uri(new URI(url))
+                    .GET()
+                    .build();
+
+            HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());
+
+            String jsonResponse = response.body();
+
+            JsonNode jsonNode = mapper.readTree(jsonResponse);
+            if (jsonNode != null && jsonNode.isArray()) {
+                for (JsonNode jsonPart : jsonNode) {
+                    int course_id = jsonPart.get("id").asInt();
+                    String name = jsonPart.get("shortname").asText();
+                    String[] part = name.split(" ");
+                    if (!Objects.equals(part[0], "Foreign") && !Objects.equals(part[0], "Physical")) {
+                        double attendance = getAttendance(course_id);
+
+                        long currentDate = Instant.now().getEpochSecond();
+                        long endDate = jsonPart.get("enddate").asLong();
+                        if (currentDate < endDate) {
+                            Course course = new Course(course_id, name, attendance, true);
+                            courses.add(course);
+                        }
                     }
                 }
             }

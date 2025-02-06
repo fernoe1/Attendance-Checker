@@ -10,4 +10,6 @@ public interface IScheduleRepository {
     ArrayList<Schedule> getSchedules();
 
     int getWeeklyClassCountForCourse(int userId, int courseId);
+
+    ArrayList<String> getWeeklyClassDaysForCourse(int userId, int courseId);
 }

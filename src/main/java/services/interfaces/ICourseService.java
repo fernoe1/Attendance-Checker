@@ -15,4 +15,6 @@ public interface ICourseService {
     ArrayList<Course> getFormattedOngoingCourses();
 
     Course getCourseById(int course_id);
+
+    ArrayList<Course> getOngoingCourses();
 }

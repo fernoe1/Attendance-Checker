@@ -1,6 +1,13 @@
 package utilities;
 
+import java.time.DayOfWeek;
 import java.time.LocalDate;
+import java.time.ZoneId;
+import java.time.temporal.TemporalAdjusters;
+import java.time.temporal.WeekFields;
+
+import java.util.ArrayList;
+import java.util.Locale;
 import java.util.Map;
 
 public class WeekUtils {
@@ -55,5 +62,44 @@ public class WeekUtils {
 
         long daysBetween = today.toEpochDay() - start.toEpochDay();
         return (int) (daysBetween / 7) + 1;
+    }
+
+    public static long getUnixTimestampForWeekday(DayOfWeek targetDay) {
+        LocalDate today = LocalDate.now();
+        LocalDate monday = today.with(WeekFields.of(Locale.getDefault()).dayOfWeek(), 1);
+        LocalDate targetDate = monday.with(TemporalAdjusters.nextOrSame(targetDay));
+        return targetDate.atStartOfDay(ZoneId.systemDefault()).toEpochSecond();
+    }
+
+    public static ArrayList<DayOfWeek> convertToDayOfWeek(ArrayList<String> weekdays) {
+        ArrayList<DayOfWeek> daysOfWeek = new ArrayList<>();
+
+        for (String day : weekdays) {
+            switch (day) {
+                case "Monday":
+                    daysOfWeek.add(DayOfWeek.MONDAY);
+                    break;
+                case "Tuesday":
+                    daysOfWeek.add(DayOfWeek.TUESDAY);
+                    break;
+                case "Wednesday":
+                    daysOfWeek.add(DayOfWeek.WEDNESDAY);
+                    break;
+                case "Thursday":
+                    daysOfWeek.add(DayOfWeek.THURSDAY);
+                    break;
+                case "Friday":
+                    daysOfWeek.add(DayOfWeek.FRIDAY);
+                    break;
+                case "Saturday":
+                    daysOfWeek.add(DayOfWeek.SATURDAY);
+                    break;
+                case "Sunday":
+                    daysOfWeek.add(DayOfWeek.SUNDAY);
+                    break;
+            }
+        }
+
+        return daysOfWeek;
     }
 }
