@@ -1,6 +1,7 @@
 package services;
 
 import clients.MoodleClient;
+import repositories.CourseRepository;
 import repositories.ScheduleRepository;
 import services.interfaces.IAttendanceService;
 import utilities.WeekUtils;
@@ -20,8 +21,7 @@ public class AttendanceService implements IAttendanceService {
             LocalDate.of(2024, 12, 16),
             LocalDate.of(2025, 1, 1),
             LocalDate.of(2025, 1, 2),
-            LocalDate.of(2025, 1, 7),
-            LocalDate.of(2025, 3, 8)
+            LocalDate.of(2025, 1, 7)
     );
 
     List<String> dayOfHolidays = List.of(
@@ -29,8 +29,7 @@ public class AttendanceService implements IAttendanceService {
             holidays.get(1).getDayOfWeek().getDisplayName(TextStyle.FULL, Locale.ENGLISH),
             holidays.get(2).getDayOfWeek().getDisplayName(TextStyle.FULL, Locale.ENGLISH),
             holidays.get(3).getDayOfWeek().getDisplayName(TextStyle.FULL, Locale.ENGLISH),
-            holidays.get(4).getDayOfWeek().getDisplayName(TextStyle.FULL, Locale.ENGLISH),
-            holidays.get(5).getDayOfWeek().getDisplayName(TextStyle.FULL, Locale.ENGLISH)
+            holidays.get(4).getDayOfWeek().getDisplayName(TextStyle.FULL, Locale.ENGLISH)
     );
 
     public AttendanceService(MoodleClient moodleClient, ScheduleRepository scheduleRepository) {
@@ -50,6 +49,7 @@ public class AttendanceService implements IAttendanceService {
         for (String day : days) {
             for (String hday : dayOfHolidays) {
                 if (Objects.equals(day, hday)) {
+                    System.out.println("Day: " + day + " Hday: " + hday);
                     points -= 2;
                 }
             }
@@ -70,11 +70,12 @@ public class AttendanceService implements IAttendanceService {
             }
         }
 
-        return (int) (points * moodleClient.getAttendance(course_id));
+        return (int) (points * (moodleClient.getAttendance(course_id) / 100));
     }
 
     @Override
-    public double getTrueAttendance(int course_id) {
-        return (double) getAttendedAttendancePoints(course_id) / getMaxAttendancePoints(course_id);
+    public String getTrueAttendance(int course_id) {
+        double value = (double) getAttendedAttendancePoints(course_id) / getMaxAttendancePoints(course_id);
+        return String.format("%.1f%%", value * 100);
     }
 }

@@ -4,23 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6f2cad37-5940-45cf-a3de-4aad368e6267" name="Changes" comment="Implemented lambdas, SOLID principles, singletons and optimized code.">
+    <list default="true" id="6f2cad37-5940-45cf-a3de-4aad368e6267" name="Changes" comment="Implemented categories and joins.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Menu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Menu.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/clients/MoodleClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/clients/MoodleClient.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/clients/interfaces/IMoodleClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/clients/interfaces/IMoodleClient.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/database/Database.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/database/Database.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/repositories/ScheduleRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/repositories/ScheduleRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/repositories/interfaces/IScheduleRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/repositories/interfaces/IScheduleRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/services/AttendanceService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/services/AttendanceService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/services/CourseService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/services/CourseService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/services/ScheduleService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/services/ScheduleService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/services/interfaces/IAttendanceService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/services/interfaces/IAttendanceService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/services/interfaces/ICourseService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/services/interfaces/ICourseService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/services/interfaces/IScheduleService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/services/interfaces/IScheduleService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/utilities/WeekUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/utilities/WeekUtils.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/Menu.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Menu.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/database/Database.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/database/Database.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -111,6 +99,10 @@
       <workItem from="1738597491506" duration="4202000" />
       <workItem from="1738777703627" duration="6521000" />
       <workItem from="1738844758859" duration="2310000" />
+      <workItem from="1738904426242" duration="1863000" />
+      <workItem from="1738908456142" duration="2482000" />
+      <workItem from="1738942365106" duration="918000" />
+      <workItem from="1738943529970" duration="1961000" />
     </task>
     <task id="LOCAL-00001" summary="sa">
       <option name="closed" value="true" />
@@ -168,7 +160,15 @@
       <option name="project" value="LOCAL" />
       <updated>1738786199238</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="Implemented categories and joins.">
+      <option name="closed" value="true" />
+      <created>1738872768200</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1738872768200</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -181,6 +181,7 @@
     <MESSAGE value="did sum" />
     <MESSAGE value="updated database" />
     <MESSAGE value="Implemented lambdas, SOLID principles, singletons and optimized code." />
-    <option name="LAST_COMMIT_MESSAGE" value="Implemented lambdas, SOLID principles, singletons and optimized code." />
+    <MESSAGE value="Implemented categories and joins." />
+    <option name="LAST_COMMIT_MESSAGE" value="Implemented categories and joins." />
   </component>
 </project>

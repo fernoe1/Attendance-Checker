@@ -7,5 +7,5 @@ public interface IAttendanceService {
 
     int getAttendedAttendancePoints(int course_id);
 
-    double getTrueAttendance(int course_id);
+    String getTrueAttendance(int course_id);
 }
